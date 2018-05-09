@@ -1,0 +1,20 @@
+.RoundButton {
+    background-color: #B3A369;
+    color: white;
+    border: 0px;
+    font-size: 20vmin;
+    width: 75vmin;
+    height: 75vmin;
+    border-radius: 50%;
+    align-items: center;
+    border: 2px solid #B3A369;
+    outline:0;
+}
+.RoundButton:active {
+    background-color: white;
+    color: #B3A369;
+}
+.CenterButton {
+    text-align: center;
+    padding-top: 12vmin;
+}
