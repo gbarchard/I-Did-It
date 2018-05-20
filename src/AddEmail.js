@@ -22,6 +22,9 @@ export class AddEmail extends Component {
 
     getEmails = () => {
         var currentEmail = localStorage.getItem("email")
+        if (currentEmail === null) {
+            localStorage.setItem("email","")
+        }
         var email = window.prompt("Add Email", localStorage.getItem("email"))
         if (email != null) {
             localStorage.setItem("email",email)
