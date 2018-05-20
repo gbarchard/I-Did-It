@@ -22,6 +22,9 @@ export class IDidIt extends Component {
 
     sendEmail = () => {
         console.log("got here")
+        if (currentEmail === null) {
+            localStorage.setItem("email","")
+        }
         var RandomEmailIndex = Math.floor(Math.random() * 4);
         var RandomEmailMessages = ["Suck It","I dominate","You're up, bro","Bring it!"]
         var EmailList =localStorage.getItem("email")
