@@ -35,7 +35,7 @@ export class IDidIt extends Component {
 
     render() {
         return (
-            <IDidItButton onClick={this.sendEmail}>I Did It</IDidItButton>
+            <IDidItButton onClick={this.sendEmail}>I Did It!</IDidItButton>
         );
     }
 }
