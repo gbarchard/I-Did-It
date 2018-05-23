@@ -22,6 +22,7 @@ export class IDidIt extends Component {
 
     sendEmail = () => {
         console.log("got here")
+        var currentEmail = localStorage.getItem("email")
         if (currentEmail === null) {
             localStorage.setItem("email","")
         }

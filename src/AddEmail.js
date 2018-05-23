@@ -10,7 +10,7 @@ const AddEmailButton = styled.button`
     border: 2px solid #B3A369;
     width: 15vmin;
     height: 15vmin;
-    font-size: 10vmin;
+    font-size: 5vmin;
 
     &:active {
         background-color: white;
