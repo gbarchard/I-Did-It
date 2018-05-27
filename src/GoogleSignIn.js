@@ -16,7 +16,7 @@ export class GoogleSignIn extends Component {
 				onSuccess={this.responseGoogle}
 				onFailure={this.responseGoogle}
 			/>
-			<div className="g-signin2" data-onsuccess="onSignIn"></div>
+			<div className="g-signin2" data-onsuccess={this.responseGoogle}></div>
 			</div>
 		);
 	}
