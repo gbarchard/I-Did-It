@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import {IDidIt} from './IDidIt';
 import {AddEmail} from './AddEmail';
+import {GoogleSignIn} from './GoogleSignIn';
 import styled from "styled-components";
 
 const MainPage = styled.div`
@@ -17,6 +18,7 @@ class App extends Component {
   render() {
     return (
       <div>
+        <GoogleSignIn></GoogleSignIn>
         <LocateEmail>
           <AddEmail></AddEmail>
         </LocateEmail>
