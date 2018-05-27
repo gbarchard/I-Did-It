@@ -1,31 +1,26 @@
 import React, { Component } from 'react';
+import GoogleLogin from 'react-google-login';
+
 
 export class GoogleSignIn extends Component {
 
     componentDidMount() {
-      function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+    
+    }
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
-        console.log("ID Token: " + id_token);
-      };
-
-      
+    responseGoogle = (response) => {
+        console.log(response);
     }
 
     render() {
         return (
-            <div className="g-signin2" data-onsuccess="onSignIn"></div>
-
-            
+            <GoogleLogin
+                clientId="1055110234972-c4j11hps4tctcj0cvt8aonjk6l121j1m.apps.googleusercontent.com"
+                buttonText="Login"
+                onSuccess={this.responseGoogle}
+                onFailure={this.responseGoogle}
+            />,
+            document.getElementById('googleButton')
         );
     }
 }
