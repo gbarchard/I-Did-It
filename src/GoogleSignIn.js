@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import GoogleLogin from 'react-google-login';
-
+import { GoogleLogin } from 'react-google-login';
 
 export class GoogleSignIn extends Component {
 
@@ -19,8 +18,7 @@ export class GoogleSignIn extends Component {
                 buttonText="Login"
                 onSuccess={this.responseGoogle}
                 onFailure={this.responseGoogle}
-            />,
-            document.getElementById('googleButton')
+            />
         );
     }
 }
