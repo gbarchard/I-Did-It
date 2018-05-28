@@ -25,9 +25,10 @@ export class SignIn extends Component {
             <GoogleLogin
                 clientId="1055110234972-c4j11hps4tctcj0cvt8aonjk6l121j1m.apps.googleusercontent.com"
                 buttonText="Login"
+                scope="https://www.googleapis.com/auth/analytics"
                 onSuccess={this.responseGoogleSuccess}
                 onFailure={this.responseGoogleFailure}
-            />,document.getElementById('googleButton')
+            />
         );
     }
 }
