@@ -4,14 +4,10 @@ import { GoogleLogin } from 'react-google-login';
 export class SignIn extends Component {
 
     responseGoogleSuccess = (response) => {
-        console.log(response);
-        console.log(response.profileObj.imageUrl)
-
         this.props.setSignedInValue(true, response)
     }
 
     responseGoogleFailure = (response) => {
-        console.log(response);
         this.props.setSignedIn(false, response)
     }
 

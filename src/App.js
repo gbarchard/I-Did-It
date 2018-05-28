@@ -28,6 +28,7 @@ class App extends Component {
     this.setState({signedIn: signedInStatus});
 
     if (signedInStatus) {
+      console.log(response)
       this.setState({imageUrl: response.profileObj.imageUrl})
       localStorage.setItem("imageUrl", response.profileObj.imageUrl)
     }
