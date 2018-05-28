@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import { GoogleLogout } from 'react-google-login';
 
 export class SignOut extends Component {
 
-    SignOut = () => {
+    SignOutAction = () => {
         this.props.setSignedInValue(false)
     }
 
     render() {
         return (
-            <button onClick={this.SignOut}>Sign Out</button>
+            <button type="button" onClick={this.SignOutAction}>Log Out</button>
         );
     }
 }

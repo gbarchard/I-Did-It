@@ -1,62 +1,62 @@
 import React, { Component } from 'react';
-import {IDidIt} from './IDidIt';
-import {AddEmail} from './AddEmail';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import styled from "styled-components";
-import { SignOut } from './SignOut';
-import { SignIn } from './SignIn';
 
-const MainPage = styled.div`
-  text-align: center;
-  padding-top: 0vmin;
-`;
-
-const LocateEmail = styled.div`
-  padding-top: 5%;
-  padding-left: 65%;
-`;
+import { Authenticated } from './views/Authenticated';
+import { Unauthenticated } from './views/Unauthenticated';
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.setSignedIn=this.setSignedIn.bind(this)
   }
+
   componentWillMount() {
+    console.log("app about to mount")
     if (localStorage.getItem("signedIn")==="true") {
-      this.setState({signedIn: true})
+      this.setState({signedIn: true});
+      this.setState({imageUrl: localStorage.getItem("imageUrl")})
     }
     else {
       this.setState({signedIn: false})
     }
+
   }
-  setSignedIn(x) {
-    localStorage.setItem("signedIn",x)
-    this.setState({signedIn: x});
+
+  setSignedIn(signedInStatus, response) {
+    localStorage.setItem("signedIn",signedInStatus)
+    this.setState({signedIn: signedInStatus});
+
+    if (signedInStatus) {
+      this.setState({imageUrl: response.profileObj.imageUrl})
+      localStorage.setItem("imageUrl", response.profileObj.imageUrl)
+    }
+    else {
+      localStorage.setItem("imageUrl", "")
+      this.setState({imageUrl: ""})
+    }
   }
+
   ShowCorrectScreen() {
     if (this.state.signedIn===true) {
       return (
-        <div>
-          <LocateEmail>
-            <AddEmail></AddEmail>
-          </LocateEmail>
-          <MainPage>
-            <IDidIt></IDidIt>
-          </MainPage>
-          <SignOut setSignedInValue={this.setSignedIn}></SignOut>
-        </div>
+        <Authenticated image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
       )
     }
     else {
       return (
-          <SignIn setSignedInValue={this.setSignedIn}></SignIn>
+          <Unauthenticated setSignedInValue={this.setSignedIn}></Unauthenticated>
       )
     }
   }
+
   render() {
     return (
-      <div>
-        {this.ShowCorrectScreen()}
-      </div>
+      <Router>
+        <div>
+          {this.ShowCorrectScreen()}
+        </div>
+      </Router>
     );
   }
 }
