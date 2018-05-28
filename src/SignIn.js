@@ -27,7 +27,7 @@ export class SignIn extends Component {
                 buttonText="Login"
                 onSuccess={this.responseGoogleSuccess}
                 onFailure={this.responseGoogleFailure}
-            />
+            />,document.getElementById('googleButton')
         );
     }
 }

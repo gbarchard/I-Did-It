@@ -48,7 +48,9 @@ class App extends Component {
     }
     else {
       return (
-        <SignIn setSignedInValue={this.setSignedIn}></SignIn>
+        <div id="googleButton" className="g-signin2" data-onsuccess="onSignIn" data-theme="dark">
+          <SignIn setSignedInValue={this.setSignedIn}></SignIn>
+        </div>
       )
     }
   }
