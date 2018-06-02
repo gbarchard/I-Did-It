@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
-import { GoogleLogout } from 'react-google-login';
+
+import styled from "styled-components";
+
+const SignOutText = styled.body`
+    text-decoration: underline;
+    cursor: pointer;
+`
 
 export class SignOut extends Component {
 
@@ -9,7 +15,7 @@ export class SignOut extends Component {
 
     render() {
         return (
-            <button type="button" onClick={this.SignOutAction}>Log Out</button>
+            <SignOutText type="button" onClick={this.SignOutAction}>Sign Out</SignOutText>
         );
     }
 }
