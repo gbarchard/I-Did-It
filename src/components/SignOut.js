@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 
 import styled from "styled-components";
 
-const SignOutText = styled.body`
+const SignOutText = styled.p`
     text-decoration: underline;
     cursor: pointer;
 `
