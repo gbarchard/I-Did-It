@@ -19,6 +19,7 @@ const AddEmailPosition = styled.div`
 	grid-row-end: 1;
 	display: flex;
 	justify-content: center;
+	align-self: center;
 `;
 
 const IDidItPosition = styled.div`
