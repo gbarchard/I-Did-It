@@ -9,7 +9,7 @@ import { MyAccount } from '../components/MyAccount';
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 20vw 1fr 20vw;
-	grid-template-rows: 5vh 60vh 20vh 5vh;
+	grid-template-rows: 5vh 50vh 20vh 5vh;
 `;
 
 const AddEmailPosition = styled.div`
