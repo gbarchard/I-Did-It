@@ -8,8 +8,8 @@ import { MyAccount } from '../components/MyAccount';
 
 const View = styled.div`
 	display: grid;  
-	grid-template-columns: 20% 60% 20%;
-	grid-template-rows: 10% 80% 10%;
+	grid-template-columns: 10vwmin 1fr 10vwmin;
+	grid-template-rows: 10vw 1fr 10vw;
 `;
 
 const AddEmailPosition = styled.div`
@@ -29,6 +29,7 @@ const IDidItPosition = styled.div`
 	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
+	align-self: center;
 `;
 
 const SignOutPosition = styled.div`
@@ -38,6 +39,7 @@ const SignOutPosition = styled.div`
 	grid-row-end: 4;	
 	display: flex;
 	justify-content: center;
+	align-self: center;
 `;
 
 

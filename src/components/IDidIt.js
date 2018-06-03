@@ -8,8 +8,8 @@ const IDidItButton = styled.button`
     align-items: center;
     outline:0; 
     border: 2px solid #B3A369;
-    width: 60vmin;
-    height: 60vmin;
+    width: 80vw;
+    height: 80vw;
     font-size: 20vmin;
 
     &:active {
