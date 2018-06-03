@@ -12,7 +12,6 @@ class App extends Component {
   }
 
   componentWillMount() {
-    console.log("app about to mount")
     if (localStorage.getItem("signedIn")==="true") {
       this.setState({signedIn: true});
       this.setState({imageUrl: localStorage.getItem("imageUrl")})

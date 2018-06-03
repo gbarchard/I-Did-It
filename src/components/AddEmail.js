@@ -1,20 +1,10 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-const AddEmailButton = styled.button`
-    background-color: #B3A369;
-    color: white;
+const AddEmailButton = styled.img`
     border-radius: 50%;
-    align-items: center;
-    outline:0; 
-    border: 2px solid #B3A369;
-    width: 15vmin;
-    height: 15vmin;
-    font-size: 5vmin;
-
-    &:active {
-        background-color: white;
-        color: #B3A369;
+    height: 96px;
+    width: 96px;
     }
 `
 
@@ -33,7 +23,7 @@ export class AddEmail extends Component {
 
     render() {
         return (
-            <AddEmailButton onClick={this.getEmails}>+</AddEmailButton>
+            <AddEmailButton src='settings.png' alt="Settings" onClick={this.getEmails}></AddEmailButton>
         );
     }
 }

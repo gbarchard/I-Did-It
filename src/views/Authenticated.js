@@ -21,11 +21,6 @@ const AddEmailPosition = styled.div`
 	justify-content: center;
 `;
 
-const IDidItStyle = styled.div`
-  text-align: center;
-  padding-top: 0vmin;
-`;
-
 const IDidItPosition = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
@@ -44,9 +39,6 @@ const SignOutPosition = styled.div`
 	justify-content: center;
 `;
 
-const SignOutStyle = styled.div`
-
-`
 
 const MyAccountPosition = styled.div`
 	grid-column-start: 3;
@@ -69,17 +61,13 @@ export class Authenticated extends Component {
 							<AddEmail></AddEmail>
 						</AddEmailPosition>
 						<IDidItPosition>
-							<IDidItStyle>
-								<IDidIt></IDidIt>
-							</IDidItStyle>
+							<IDidIt></IDidIt>
 						</IDidItPosition>
 						<MyAccountPosition>
 							<MyAccount image={this.props.image}/>
 						</MyAccountPosition>
 						<SignOutPosition>
-							<SignOutStyle>
-								<SignOut setSignedInValue={this.props.setSignedInValue}></SignOut>
-							</SignOutStyle>	
+							<SignOut setSignedInValue={this.props.setSignedInValue}></SignOut>
 						</SignOutPosition>
 					</View>
         );
