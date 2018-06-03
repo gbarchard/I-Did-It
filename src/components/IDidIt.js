@@ -10,7 +10,7 @@ const IDidItButton = styled.button`
     border: 2px solid #B3A369;
     width: 80vw;
     height: 80vw;
-    font-size: 10vmin;
+    font-size: 15vmin;
 
     &:active {
         background-color: white;
