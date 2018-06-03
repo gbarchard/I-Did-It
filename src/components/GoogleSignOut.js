@@ -8,10 +8,18 @@ const SignOutText = styled.p`
     font-size: 4vw;
 `
 
-export class SignOut extends Component {
-
+export class GoogleSignOut extends Component {    
+    componentDidMount() {
+        window.gapi.load('auth2', function() {
+            window.gapi.auth2.init();
+        });
+    }
+    
     SignOutAction = () => {
-        this.props.setSignedInValue(false)
+        var auth2 = window.gapi.auth2.getAuthInstance();
+        auth2.signOut().then(() => {
+            this.props.setSignedInValue(false)
+        });
     }
 
     render() {

@@ -13,11 +13,16 @@ class App extends Component {
 
   componentWillMount() {
     if (localStorage.getItem("signedIn")==="true") {
-      this.setState({signedIn: true});
-      this.setState({imageUrl: localStorage.getItem("imageUrl")})
+      this.setState({
+        signedIn: true,
+        imageUrl: localStorage.getItem("imageUrl")
+      })
     }
     else {
-      this.setState({signedIn: false})
+      this.setState({
+        signedIn: false,
+        imageUrl: ""
+      })
     }
 
   }

@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import {IDidIt} from '../components/IDidIt';
 import {AddEmail} from '../components/AddEmail';
-import { SignOut } from '../components/SignOut';
+import { GoogleSignOut } from '../components/GoogleSignOut';
 import { MyAccount } from '../components/MyAccount';
 
 const View = styled.div`
@@ -32,7 +32,7 @@ const IDidItPosition = styled.div`
 	align-self: center;
 `;
 
-const SignOutPosition = styled.div`
+const GoogleSignOutPosition = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 3;
@@ -69,9 +69,9 @@ export class Authenticated extends Component {
 						<MyAccountPosition>
 							<MyAccount image={this.props.image}/>
 						</MyAccountPosition>
-						<SignOutPosition>
-							<SignOut setSignedInValue={this.props.setSignedInValue}></SignOut>
-						</SignOutPosition>
+						<GoogleSignOutPosition>
+							<GoogleSignOut setSignedInValue={this.props.setSignedInValue}></GoogleSignOut>
+						</GoogleSignOutPosition>
 					</View>
         );
     }
