@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-import { SignIn } from '../components/SignIn';
+import { GoogleSignIn } from '../components/GoogleSignIn';
 
 const View = styled.div`
 	display: grid;  
@@ -25,7 +25,7 @@ export class Unauthenticated extends Component {
 		return (
 			<View>
 				<SignInPosition>
-					<SignIn setSignedInValue={this.props.setSignedInValue}/>
+					<GoogleSignIn setSignedInValue={this.props.setSignedInValue}/>
 				</SignInPosition>	
 			</View>
 		);

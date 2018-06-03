@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import styled from "styled-components";
+// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+// import styled from "styled-components";
 
 import { Authenticated } from './views/Authenticated';
 import { Unauthenticated } from './views/Unauthenticated';
@@ -27,9 +27,9 @@ class App extends Component {
     this.setState({signedIn: signedInStatus});
 
     if (signedInStatus) {
-      console.log(response)
-      this.setState({imageUrl: response.profileObj.imageUrl})
-      localStorage.setItem("imageUrl", response.profileObj.imageUrl)
+      var imageURL = response.w3.Paa
+      this.setState({imageUrl: imageURL})
+      localStorage.setItem("imageUrl", imageURL)
     }
     else {
       localStorage.setItem("imageUrl", "")
@@ -52,11 +52,9 @@ class App extends Component {
 
   render() {
     return (
-      <Router>
         <div>
           {this.ShowCorrectScreen()}
         </div>
-      </Router>
     );
   }
 }
