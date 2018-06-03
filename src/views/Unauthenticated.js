@@ -6,7 +6,7 @@ import { SignIn } from '../components/SignIn';
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 1fr;
-	grid-template-rows: 98vh;
+	grid-template-rows: 80vh;
 `;
 
 const SignInPosition = styled.div`
