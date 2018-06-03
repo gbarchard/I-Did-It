@@ -6,6 +6,7 @@ const SignOutText = styled.p`
     text-decoration: underline;
     cursor: pointer;
     font-size: 4vw;
+    font-family: 'Roboto', sans-serif;
 `
 
 export class GoogleSignOut extends Component {    
@@ -24,7 +25,7 @@ export class GoogleSignOut extends Component {
 
     render() {
         return (
-            <SignOutText type="button" onClick={this.SignOutAction}>Sign Out</SignOutText>
+            <SignOutText type="button" onClick={this.SignOutAction}>SIGN OUT</SignOutText>
         );
     }
 }

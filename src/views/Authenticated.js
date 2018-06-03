@@ -9,7 +9,7 @@ import { MyAccount } from '../components/MyAccount';
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 20vw 1fr 20vw;
-	grid-template-rows: 20vw 1fr 10vw;
+	grid-template-rows: 10vh 60vh 20vh 10vh;
 `;
 
 const AddEmailPosition = styled.div`
@@ -24,8 +24,8 @@ const AddEmailPosition = styled.div`
 const IDidItPosition = styled.div`
 	grid-column-start: 1;
 	grid-column-end: 4;
-	grid-row-start: 1;
-	grid-row-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 4;
 	display: flex;
 	justify-content: center;
 `;
@@ -33,8 +33,8 @@ const IDidItPosition = styled.div`
 const GoogleSignOutPosition = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
-	grid-row-start: 3;
-	grid-row-end: 4;	
+	grid-row-start: 4;
+	grid-row-end: 5;	
 	display: flex;
 	justify-content: center;
 `;
