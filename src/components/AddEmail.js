@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const AddEmailButton = styled.img`
     border-radius: 50%;
-    height: 8vw;
-    width: 8vw;
+    height: 18vw;
+    width: 18vw;
     }
 `
 
