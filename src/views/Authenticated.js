@@ -9,14 +9,16 @@ import { MyAccount } from '../components/MyAccount';
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 20% 60% 20%;
-	grid-template-rows: 10% 80% 10%
+	grid-template-rows: 10% 80% 10%;
 `;
 
 const AddEmailPosition = styled.div`
 	grid-column-start: 1;
 	grid-column-end: 2;
 	grid-row-start: 1;
-	grid-row-end: 1;	
+	grid-row-end: 1;
+	display: flex;
+	justify-content: center;
 `;
 
 const IDidItStyle = styled.div`
@@ -28,7 +30,9 @@ const IDidItPosition = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
 	grid-row-start: 2;
-	grid-row-end: 3;	
+	grid-row-end: 3;
+	display: flex;
+	justify-content: center;
 `;
 
 const SignOutPosition = styled.div`
@@ -36,10 +40,12 @@ const SignOutPosition = styled.div`
 	grid-column-end: 3;
 	grid-row-start: 3;
 	grid-row-end: 4;	
+	display: flex;
+	justify-content: center;
 `;
 
 const SignOutStyle = styled.div`
-	align-items: center;
+
 `
 
 const MyAccountPosition = styled.div`
@@ -47,6 +53,9 @@ const MyAccountPosition = styled.div`
 	grid-column-end: 4;
 	grid-row-start: 1;
 	grid-row-end: 1;	
+	display: flex;
+	justify-content: center;
+	align-self: center;
 `;
 
 
