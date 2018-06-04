@@ -3,8 +3,8 @@ import styled from "styled-components";
 
 const Account = styled.img`
     border-radius: 50%;
-    height: 18vw;
-    width: 18vw;
+    height: 18vmin;
+    width: 18vmin;
     }
 `
 

@@ -5,11 +5,9 @@ const IDidItButton = styled.button`
     background-color: #B3A369;
     color: white;
     border-radius: 50%;
-    align-items: center;
-    outline:0; 
-    border: 2px solid #B3A369;
-    width: 80vw;
-    height: 80vw;
+    border: solid #B3A369;
+    width: 80vmin;
+    height: 80vmin;
     font-size: 16vmin;
 
     &:active {

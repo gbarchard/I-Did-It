@@ -5,7 +5,7 @@ import styled from "styled-components";
 const SignOutText = styled.p`
     text-decoration: underline;
     cursor: pointer;
-    font-size: 4vw;
+    font-size: 4vmin;
     font-family: 'Roboto', sans-serif;
 `
 
