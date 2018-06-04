@@ -19,13 +19,12 @@ const IDidItButton = styled.button`
 export class IDidIt extends Component {
 
     sendEmail = () => {
-        console.log("got here")
         var currentEmail = localStorage.getItem("email")
         if (currentEmail === null) {
             localStorage.setItem("email","")
         }
         var RandomEmailIndex = Math.floor(Math.random() * 4);
-        var RandomEmailMessages = ["Suck It","I dominate","You're up, bro","Bring it!"]
+        var RandomEmailMessages = ["I dominate","You're up, bro","Bring it!"]
         var EmailList =localStorage.getItem("email")
         var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex]
         window.location.href = MyEmail
