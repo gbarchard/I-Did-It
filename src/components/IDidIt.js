@@ -23,10 +23,13 @@ export class IDidIt extends Component {
         if (currentEmail === null) {
             localStorage.setItem("email","")
         }
-        var RandomEmailIndex = Math.floor(Math.random() * 4);
+        var RandomEmailIndex = Math.floor(Math.random() * 3);
         var RandomEmailMessages = ["I dominate","You're up, bro","Bring it!"]
+        var CarriageReturn = "%0D%0A%0D%0A"
+        var MarketingMessage = "Want to do it too?  Join us at http://ididitagain.herokuapp.com/"
         var EmailList =localStorage.getItem("email")
-        var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex]
+        console.log(RandomEmailIndex)
+        var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex] + CarriageReturn + MarketingMessage
         window.location.href = MyEmail
     }
 
