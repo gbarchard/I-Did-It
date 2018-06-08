@@ -28,7 +28,6 @@ export class IDidIt extends Component {
         var CarriageReturn = "%0D%0A%0D%0A"
         var MarketingMessage = "Want to do it too?  Join us at http://ididitagain.herokuapp.com/"
         var EmailList =localStorage.getItem("email")
-        console.log(RandomEmailIndex)
         var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex] + CarriageReturn + MarketingMessage
         window.location.href = MyEmail
     }
