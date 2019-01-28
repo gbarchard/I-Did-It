@@ -34,10 +34,8 @@ export class GoogleSignIn extends Component {
 				created
 			}
 		}`
-		console.log(mutation)
 		request('http://localhost:3000/graphql', mutation).then(data => {
-			console.log(data)
-			this.props.setSignedInValue(true, response)
+			this.props.setSignedInValue(true, data)
 		})
 		
 	}

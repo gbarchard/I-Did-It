@@ -30,7 +30,7 @@ class App extends Component {
     this.setState({signedIn: signedInStatus});
 
     if (signedInStatus) {
-      var imageURL = response.w3.Paa
+      var imageURL = response.addUser.image
       this.setState({imageUrl: imageURL})
       localStorage.setItem("imageUrl", imageURL)
     }
