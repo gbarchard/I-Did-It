@@ -34,7 +34,8 @@ export class GoogleSignIn extends Component {
 				created
 			}
 		}`
-		request('http://localhost:3000/graphql', mutation).then(data => {
+		let url = "https://evening-stream-42098.herokuapp.com/graphql"
+		request(url, mutation).then(data => {
 			this.props.setSignedInValue(true, data)
 		})
 		
