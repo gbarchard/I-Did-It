@@ -21,7 +21,7 @@ export class GoogleSignIn extends Component {
 				firstName: "${response.w3.ofa}",
 				lastName: "${response.w3.wea}", 
 				email: "${response.w3.U3}",
-				token: "${response.Zi.id_token}",
+				token: "${response.w3.Eea}",
 				image: "${response.w3.Paa}"
 			)` +
 			`{
@@ -34,7 +34,9 @@ export class GoogleSignIn extends Component {
 				created
 			}
 		}`
+
 		let url = "https://evening-stream-42098.herokuapp.com/graphql"
+		//let url = "http://localhost:3000/graphql"
 		request(url, mutation).then(data => {
 			this.props.setSignedInValue(true, data)
 		})
