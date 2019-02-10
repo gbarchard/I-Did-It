@@ -6,13 +6,12 @@ import {IDidIt} from '../components/IDidIt';
 import {AddEmail} from '../components/AddEmail';
 import { GoogleSignOut } from '../components/GoogleSignOut';
 import { MyAccount } from '../components/MyAccount';
-import { NewsItem } from '../components/NewsItem';
 
 
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 20vmin 1fr 20vmin;
-	grid-template-rows: 30vmax 30vmax 20vmax 5vmax;
+	grid-template-rows: 1fr 30vmax 1fr 1fr;
 `;
 
 const AddEmailPosition = styled.div`
@@ -69,12 +68,11 @@ export class Authenticated extends Component {
 	
 	addNewsFeed() {
 			var newsFeed = this.props.newsFeed
-			console.log(newsFeed)
 			return (
 				<div>
 					{newsFeed.map((newsFeedItem, i) => {
 						return (
-							<NewsItem key={i} date={newsFeedItem.date}></NewsItem>
+							<div key={i}>{newsFeedItem.date}</div>
 					)})}
 				</div>
 			)
