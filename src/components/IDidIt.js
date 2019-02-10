@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
+import { request } from 'graphql-request';
 
 const IDidItButton = styled.button`
     background-color: #B3A369;
@@ -19,6 +20,26 @@ const IDidItButton = styled.button`
 export class IDidIt extends Component {
 
     sendEmail = () => {
+        var today = new Date();
+        const mutation = `mutation {
+			addDidit(
+				userId: "7866ba40-6d82-4a93-9671-6abd95b7d565",
+                date: "${today}",
+			)` +
+			`{
+                created
+			}
+		}`
+
+		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
+		let url = "http://localhost:3000/graphql"
+		request(url, mutation).then(data => {
+			console.log(data)
+		})
+		
+
+
+
         var currentEmail = localStorage.getItem("email")
         if (currentEmail === null) {
             localStorage.setItem("email","")
