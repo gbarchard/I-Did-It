@@ -35,10 +35,13 @@ export class GoogleSignIn extends Component {
 			}
 		}`
 
-		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
-		let url = "http://localhost:3000/graphql"
+		let url = "https://evening-stream-42098.herokuapp.com/graphql"
+		//let url = "http://localhost:3000/graphql"
 		request(url, mutation).then(data => {
-			this.props.setSignedInValue({"signedIn": true}, data)
+			this.props.setSignedInValue({
+				"signedIn": true,
+				"userId": data.addUser.id
+			}, data)
 		})
 		
 	}

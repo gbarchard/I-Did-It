@@ -26,13 +26,16 @@ class App extends Component {
   }
 
   setSignedIn(signedInStatus, response) {
-    console.log(signedInStatus.signedIn)
     localStorage.setItem("signedIn",signedInStatus.signedIn)
     this.setState({signedIn: signedInStatus.signedIn});
 
     if (signedInStatus.signedIn) {
       var imageURL = response.addUser.image
-      this.setState({imageUrl: imageURL})
+      var userId = signedInStatus.userId
+      this.setState({
+        imageUrl: imageURL,
+        userId: userId
+      })
       localStorage.setItem("imageUrl", imageURL)
     }
     else {
@@ -44,7 +47,7 @@ class App extends Component {
   ShowCorrectScreen() {
     if (this.state.signedIn===true) {
       return (
-        <Authenticated image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
+        <Authenticated userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
       )
     }
     else {

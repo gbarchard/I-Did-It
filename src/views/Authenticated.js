@@ -60,7 +60,7 @@ export class Authenticated extends Component {
 							<AddEmail></AddEmail>
 						</AddEmailPosition>
 						<IDidItPosition>
-							<IDidIt></IDidIt>
+							<IDidIt userId={this.props.userId}></IDidIt>
 						</IDidItPosition>
 						<MyAccountPosition>
 							<MyAccount image={this.props.image}/>

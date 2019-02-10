@@ -18,12 +18,16 @@ const IDidItButton = styled.button`
 `
 
 export class IDidIt extends Component {
+    constructor(props) {
+        super(props);
+            this.sendEmail=this.sendEmail.bind(this);
+        }
 
     sendEmail = () => {
         var today = new Date();
         const mutation = `mutation {
 			addDidit(
-				userId: "7866ba40-6d82-4a93-9671-6abd95b7d565",
+				userId: "${this.props.userId}",
                 date: "${today}",
 			)` +
 			`{
@@ -34,8 +38,8 @@ export class IDidIt extends Component {
 		let url = "https://evening-stream-42098.herokuapp.com/graphql"
 		//let url = "http://localhost:3000/graphql"
 		request(url, mutation).then(data => {
-			console.log(data)
-		})
+
+        })
 		
 
 
