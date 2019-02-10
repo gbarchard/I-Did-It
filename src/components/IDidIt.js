@@ -37,7 +37,7 @@ export class IDidIt extends Component {
         mm = '0' + mm;
         }
 
-        today = mm + '/' + dd + '/' + yyyy;
+        today = yyyy + '-' + mm + '-' + dd
 
         const mutation = `mutation {
 			addDidit(
