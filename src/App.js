@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { request } from 'graphql-request';
 
 import { Authenticated } from './views/Authenticated';
 import { Unauthenticated } from './views/Unauthenticated';
@@ -14,14 +15,35 @@ class App extends Component {
       this.setState({
         signedIn: true,
         imageUrl: localStorage.getItem("imageUrl"),
-        userId: localStorage.getItem("userId")
+        userId: localStorage.getItem("userId"),
+        newsFeed: []
       })
+      const query = `query {
+				mydidits(
+					userId: "${localStorage.getItem("userId")}")` +
+				`{
+					id
+					comment
+					image
+					date 
+				}
+			}`
+      
+			//let url = "https://evening-stream-42098.herokuapp.com/graphql"
+			let url = "http://localhost:3000/graphql"
+			request(url, query).then(data => {
+        console.log(data.mydidits)
+				this.setState({
+          newsFeed: data.mydidits
+        })
+			})
     }
     else {
       this.setState({
         signedIn: false,
         imageUrl: "",
-        userId: ""
+        userId: "",
+        newsFeed: []
       })
     }
 
@@ -52,7 +74,7 @@ class App extends Component {
   ShowCorrectScreen() {
     if (this.state.signedIn===true) {
       return (
-        <Authenticated userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
+        <Authenticated newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
       )
     }
     else {
