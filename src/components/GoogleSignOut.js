@@ -19,7 +19,7 @@ export class GoogleSignOut extends Component {
     SignOutAction = () => {
         var auth2 = window.gapi.auth2.getAuthInstance();
         auth2.signOut().then(() => {
-            this.props.setSignedInValue(false)
+            this.props.setSignedInValue({"signedIn": false})
         });
     }
 

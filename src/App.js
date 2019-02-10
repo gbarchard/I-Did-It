@@ -26,10 +26,11 @@ class App extends Component {
   }
 
   setSignedIn(signedInStatus, response) {
-    localStorage.setItem("signedIn",signedInStatus)
-    this.setState({signedIn: signedInStatus});
+    console.log(signedInStatus.signedIn)
+    localStorage.setItem("signedIn",signedInStatus.signedIn)
+    this.setState({signedIn: signedInStatus.signedIn});
 
-    if (signedInStatus) {
+    if (signedInStatus.signedIn) {
       var imageURL = response.addUser.image
       this.setState({imageUrl: imageURL})
       localStorage.setItem("imageUrl", imageURL)
