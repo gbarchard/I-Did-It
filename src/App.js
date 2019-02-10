@@ -13,13 +13,15 @@ class App extends Component {
     if (localStorage.getItem("signedIn")==="true") {
       this.setState({
         signedIn: true,
-        imageUrl: localStorage.getItem("imageUrl")
+        imageUrl: localStorage.getItem("imageUrl"),
+        userId: localStorage.getItem("userId")
       })
     }
     else {
       this.setState({
         signedIn: false,
-        imageUrl: ""
+        imageUrl: "",
+        userId: ""
       })
     }
 
@@ -37,10 +39,13 @@ class App extends Component {
         userId: userId
       })
       localStorage.setItem("imageUrl", imageURL)
+      localStorage.setItem("userId", userId)
     }
     else {
       localStorage.setItem("imageUrl", "")
       this.setState({imageUrl: ""})
+      localStorage.setItem("userId", "")
+      this.setState({userId: ""})
     }
   }
 
