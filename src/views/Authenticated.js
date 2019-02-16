@@ -88,7 +88,7 @@ export class Authenticated extends Component {
 					<AddEmail></AddEmail>
 				</AddEmailPosition>
 				<IDidItPosition>
-					<IDidIt iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor} userId={this.props.userId}></IDidIt>
+					<IDidIt setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor} userId={this.props.userId}></IDidIt>
 				</IDidItPosition>
 				<MyAccountPosition>
 					<MyAccount image={this.props.image}/>

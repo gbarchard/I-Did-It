@@ -51,23 +51,19 @@ export class IDidIt extends Component {
 		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
 		let url = "http://localhost:3000/graphql"
 		request(url, mutation).then(data => {
-
+            this.props.setIDidIt(true)
+            var currentEmail = localStorage.getItem("email")
+            if (currentEmail === null) {
+                localStorage.setItem("email","")
+            }
+            var RandomEmailIndex = Math.floor(Math.random() * 3);
+            var RandomEmailMessages = ["I dominate","You're up, bro","Bring it!"]
+            var CarriageReturn = "%0D%0A%0D%0A"
+            var MarketingMessage = "Want to do it too?  Join us at http://ididitagain.herokuapp.com/"
+            var EmailList =localStorage.getItem("email")
+            var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex] + CarriageReturn + MarketingMessage
+            window.location.href = MyEmail
         })
-		
-
-
-
-        var currentEmail = localStorage.getItem("email")
-        if (currentEmail === null) {
-            localStorage.setItem("email","")
-        }
-        var RandomEmailIndex = Math.floor(Math.random() * 3);
-        var RandomEmailMessages = ["I dominate","You're up, bro","Bring it!"]
-        var CarriageReturn = "%0D%0A%0D%0A"
-        var MarketingMessage = "Want to do it too?  Join us at http://ididitagain.herokuapp.com/"
-        var EmailList =localStorage.getItem("email")
-        var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex] + CarriageReturn + MarketingMessage
-        window.location.href = MyEmail
     }
 
     render() {

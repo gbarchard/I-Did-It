@@ -9,6 +9,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.setSignedIn=this.setSignedIn.bind(this)
+    this.setIDidIt=this.setIDidIt.bind(this)
+    this.getDidIts=this.getDidIts.bind(this)
+
   }
 
   componentWillMount() {
@@ -22,41 +25,7 @@ class App extends Component {
         iDidItColor: 'white',
         iDidItToday: false,
       }) 
-      const query = `query {
-				mydidits(
-					userId: "${localStorage.getItem("userId")}")` +
-				`{
-					id
-					comment
-					image
-					date 
-				}
-			}`
-			//let url = "https://evening-stream-42098.herokuapp.com/graphql"
-			let url = "http://localhost:3000/graphql"
-			request(url, query).then(data => {
-        let currentDay = getCurrentDay()
-        let mydidits = data.mydidits
-        this.setState({
-          newsFeed: mydidits
-        })
-        this.setState({
-          iDidItColor: 'white',
-          iDidItToday: false
-        })
-        if (currentDay.toString() === mydidits[0].date) {
-          this.setState({
-            iDidItColor: '#A9A9A9',
-            iDidItToday: true 
-          })
-        }
-        else {
-          this.setState({
-            iDidItColor: 'red',
-            iDidItToday: true 
-          })
-        }
-      })
+      this.getDidIts ()
     }
     else {
       this.setState({
@@ -66,6 +35,54 @@ class App extends Component {
         newsFeed: []
       })
     }
+  }
+
+  setIDidIt(iDidIt) {
+    if (iDidIt) {
+      this.setState({
+        iDidItColor: '#A9A9A9',
+        iDidItToday: true 
+      })
+    }
+    this.getDidIts ()
+  }
+
+  getDidIts () {
+    const query = `query {
+      mydidits(
+        userId: "${localStorage.getItem("userId")}")` +
+      `{
+        id
+        comment
+        image
+        date 
+      }
+    }`
+    //let url = "https://evening-stream-42098.herokuapp.com/graphql"
+    let url = "http://localhost:3000/graphql"
+    request(url, query).then(data => {
+      let currentDay = getCurrentDay()
+      let mydidits = data.mydidits
+      this.setState({
+        newsFeed: mydidits
+      })
+      this.setState({
+        iDidItColor: 'white',
+        iDidItToday: false
+      })
+      if (currentDay.toString() === mydidits[0].date) {
+        this.setState({
+          iDidItColor: '#A9A9A9',
+          iDidItToday: true 
+        })
+      }
+      else {
+        this.setState({
+          iDidItColor: 'red',
+          iDidItToday: false 
+        })
+      }
+    })
   }
 
   setSignedIn(signedInStatus, response) {
@@ -93,7 +110,7 @@ class App extends Component {
   ShowCorrectScreen() {
     if (this.state.signedIn===true) {
       return (
-        <Authenticated iDidItColor={this.state.iDidItColor} iDidItToday={this.state.iDidItToday} newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
+        <Authenticated iDidItColor={this.state.iDidItColor} iDidItToday={this.state.iDidItToday} newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn} setIDidIt={this.setIDidIt}/>
       )
     }
     else {
