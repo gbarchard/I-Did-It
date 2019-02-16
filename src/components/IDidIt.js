@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import { request } from 'graphql-request';
 
-import { config } from './config.js'
+import { config } from '../config.js'
 
 import { getCurrentDay } from '../GetCurrentDay.js'
 
