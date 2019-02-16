@@ -66,7 +66,6 @@ export class Authenticated extends Component {
 		this.addNewsFeed=this.addNewsFeed.bind(this)
 	}
 	componentWillMount(){
-		console.log(this.props)
 	}
 
 

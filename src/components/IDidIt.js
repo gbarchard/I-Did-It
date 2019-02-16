@@ -34,19 +34,6 @@ export class IDidIt extends Component {
         this.sendEmail=this.sendEmail.bind(this);
     }
 
-    componentWillMount(){
-        console.log(this.props)
-        const {
-			iDidItColor,
-			iDidItToday,
-        } = this.props
-        
-        this.setState({
-			iDidItColor: iDidItColor,
-			iDidItToday: iDidItToday,
-		})
-        // console.log(this.state.iDidItColor)
-    }
 
     sendEmail = () => {
         let today = getCurrentDay()

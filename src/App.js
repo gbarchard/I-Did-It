@@ -19,7 +19,7 @@ class App extends Component {
         imageUrl: localStorage.getItem("imageUrl"),
         userId: localStorage.getItem("userId"),
         newsFeed: [],
-        iDidItColor: '#B3A369',
+        iDidItColor: 'white',
         iDidItToday: false,
       }) 
       const query = `query {
@@ -44,21 +44,18 @@ class App extends Component {
           iDidItColor: 'white',
           iDidItToday: false
         })
-        mydidits.forEach(didit => {
-          if ((currentDay.toString() === (didit.date).toString()) && this.state.iDidItToday === false) {
-            console.log("got here")
-            this.setState({
-              iDidItColor: '#A9A9A9',
-              iDidItToday: true 
-            })
-          }
-          else if (this.state.iDidItToday === false) {
-            this.setState({
-              iDidItColor: '#B3A369',
-              iDidItToday: false
-            })
-          }
-			  })
+        if (currentDay.toString() === mydidits[0].date) {
+          this.setState({
+            iDidItColor: '#A9A9A9',
+            iDidItToday: true 
+          })
+        }
+        else {
+          this.setState({
+            iDidItColor: 'red',
+            iDidItToday: true 
+          })
+        }
       })
     }
     else {
@@ -94,7 +91,6 @@ class App extends Component {
   }
 
   ShowCorrectScreen() {
-    console.log(this.state)
     if (this.state.signedIn===true) {
       return (
         <Authenticated iDidItColor={this.state.iDidItColor} iDidItToday={this.state.iDidItToday} newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn}/>
