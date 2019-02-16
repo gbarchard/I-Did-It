@@ -2,42 +2,54 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import { request } from 'graphql-request';
 
+import { getCurrentDay } from '../GetCurrentDay.js'
+
 const IDidItButton = styled.button`
-    background-color: #B3A369;
+    background-color: ${
+	props => (
+		props.iDidItColor
+	)
+};;
     color: white;
     border-radius: 50%;
-    border: solid #B3A369;
+    border: solid ${
+        props => (props.iDidItColor)
+    };
     width: 80vmin;
     height: 80vmin;
     font-size: 16vmin;
 
     &:active {
-        background-color: white;
-        color: #B3A369;
+        background-color: ${props => (props.iDidItColor)};
+        color: ${
+            props => (props.iDidItColor)
+        };
+
     }
 `
 
 export class IDidIt extends Component {
     constructor(props) {
         super(props);
-            this.sendEmail=this.sendEmail.bind(this);
-        }
+        this.sendEmail=this.sendEmail.bind(this);
+    }
+
+    componentWillMount(){
+        console.log(this.props)
+        const {
+			iDidItColor,
+			iDidItToday,
+        } = this.props
+        
+        this.setState({
+			iDidItColor: iDidItColor,
+			iDidItToday: iDidItToday,
+		})
+        // console.log(this.state.iDidItColor)
+    }
 
     sendEmail = () => {
-        var today = new Date();
-        var dd = today.getDate();
-        var mm = today.getMonth() + 1; //January is 0!
-        var yyyy = today.getFullYear();
-
-        if (dd < 10) {
-        dd = '0' + dd;
-        }
-
-        if (mm < 10) {
-        mm = '0' + mm;
-        }
-
-        today = yyyy + '-' + mm + '-' + dd
+        let today = getCurrentDay()
 
         const mutation = `mutation {
 			addDidit(
@@ -49,8 +61,8 @@ export class IDidIt extends Component {
 			}
 		}`
 
-		let url = "https://evening-stream-42098.herokuapp.com/graphql"
-		//let url = "http://localhost:3000/graphql"
+		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
+		let url = "http://localhost:3000/graphql"
 		request(url, mutation).then(data => {
 
         })
@@ -73,7 +85,7 @@ export class IDidIt extends Component {
 
     render() {
         return (
-            <IDidItButton onClick={this.sendEmail}>I Did It</IDidItButton>
+            <IDidItButton iDidItColor={this.props.iDidItColor} onClick={this.sendEmail}>I Did It</IDidItButton>
         );
     }
 }

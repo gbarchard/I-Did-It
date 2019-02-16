@@ -65,8 +65,13 @@ export class Authenticated extends Component {
     super(props);
 		this.addNewsFeed=this.addNewsFeed.bind(this)
 	}
-	
+	componentWillMount(){
+		console.log(this.props)
+	}
+
+
 	addNewsFeed() {
+
 			var newsFeed = this.props.newsFeed
 			return (
 				<div>
@@ -84,7 +89,7 @@ export class Authenticated extends Component {
 					<AddEmail></AddEmail>
 				</AddEmailPosition>
 				<IDidItPosition>
-					<IDidIt userId={this.props.userId}></IDidIt>
+					<IDidIt iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor} userId={this.props.userId}></IDidIt>
 				</IDidItPosition>
 				<MyAccountPosition>
 					<MyAccount image={this.props.image}/>
