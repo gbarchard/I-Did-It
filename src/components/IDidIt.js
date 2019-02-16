@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import { request } from 'graphql-request';
 
+import { config } from './config.js'
+
 import { getCurrentDay } from '../GetCurrentDay.js'
 
 const IDidItButton = styled.button`
@@ -49,7 +51,7 @@ export class IDidIt extends Component {
 		}`
 
 		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
-		let url = "http://localhost:3000/graphql"
+		let url = config.baseURL
 		request(url, mutation).then(data => {
             this.props.setIDidIt(true)
             var currentEmail = localStorage.getItem("email")

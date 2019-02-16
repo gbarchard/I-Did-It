@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { request } from 'graphql-request';
 
+import { config } from './config.js'
+
 import { Authenticated } from './views/Authenticated';
 import { Unauthenticated } from './views/Unauthenticated';
 import { getCurrentDay } from './GetCurrentDay';
@@ -59,7 +61,7 @@ class App extends Component {
       }
     }`
     //let url = "https://evening-stream-42098.herokuapp.com/graphql"
-    let url = "http://localhost:3000/graphql"
+    let url = config.baseURL
     request(url, query).then(data => {
       let currentDay = getCurrentDay()
       let mydidits = data.mydidits
