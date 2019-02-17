@@ -14,19 +14,21 @@ const IDidItButton = styled.button`
 };;
     color: white;
     border-radius: 50%;
-    border: solid ${
-        props => (props.iDidItColor)
-    };
+    border: none;
     width: 80vmin;
     height: 80vmin;
     font-size: 16vmin;
 
     &:active {
         background-color: ${props => (props.iDidItColor)};
-        color: ${
-            props => (props.iDidItColor)
-        };
-
+        color: white;
+        border: none;
+    }
+    &:focus {
+        background-color: ${props => (props.iDidItColor)};
+        color: white;
+        border: none;
+        outline:0;
     }
 `
 
