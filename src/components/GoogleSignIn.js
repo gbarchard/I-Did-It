@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { request } from 'graphql-request';
 
+import { config } from './config.js';
+
 export class GoogleSignIn extends Component {
 	constructor(props) {
     super(props);
@@ -35,8 +37,7 @@ export class GoogleSignIn extends Component {
 			}
 		}`
 
-		//let url = "https://evening-stream-42098.herokuapp.com/graphql"
-		let url = "http://localhost:3000/graphql"
+  		let url = config.baseURL
 		request(url, mutation).then(data => {
 			this.props.setSignedInValue({
 				"signedIn": true,
