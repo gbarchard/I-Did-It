@@ -43,8 +43,14 @@ class App extends Component {
   setIDidIt(iDidIt) {
     if (iDidIt) {
       this.setState({
-        iDidItColor: '#A9A9A9',
+        iDidItColor: 'gray',
         iDidItToday: true 
+      })
+    }
+    else {
+      this.setState({
+        iDidItColor: 'red',
+        iDidItToday: false 
       })
     }
     this.getDidIts ()
@@ -75,13 +81,13 @@ class App extends Component {
       })
       if (currentDay.toString() === mydidits[0].date) {
         this.setState({
-          iDidItColor: '#A9A9A9',
+          iDidItColor: 'red',
           iDidItToday: true 
         })
       }
       else {
         this.setState({
-          iDidItColor: 'red',
+          iDidItColor: 'gray',
           iDidItToday: false 
         })
       }
