@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { request } from 'graphql-request';
 
-import { config } from './config.js';
+import { config } from '../config.js';
 
 export class GoogleSignIn extends Component {
 	constructor(props) {
