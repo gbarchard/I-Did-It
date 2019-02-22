@@ -10,8 +10,8 @@ import { MyAccount } from '../components/MyAccount';
 
 const View = styled.div`
 	display: grid;  
-	grid-template-columns: 20vmin 1fr 20vmin;
-	grid-template-rows: 1fr 30vmax 1fr 1fr;
+	grid-template-columns: 1vmin 1fr 1fr 1fr 1vmin;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
 `;
 
 const AddEmailPosition = styled.div`
@@ -23,28 +23,46 @@ const AddEmailPosition = styled.div`
 	justify-content: left;
 `;
 
-const IDidItPosition = styled.div`
-	grid-column-start: 1;
+const IDidIt1Position = styled.div`
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 2;
+	grid-row-end: 3;
+	display: flex;
+	justify-content: center;
+`;
+
+const IDidIt2Position = styled.div`
+	grid-column-start: 3;
 	grid-column-end: 4;
 	grid-row-start: 2;
-	grid-row-end: 4;
+	grid-row-end: 3;
+	display: flex;
+	justify-content: center;
+`;
+
+const IDidIt3Position = styled.div`
+	grid-column-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
 `;
 
 const NewsFeedPosition = styled.div`
 	grid-column-start: 1;
-	grid-column-end: 4;
-	grid-row-start: 4;
+	grid-column-end: 5;
+	grid-row-start: 3;
 	grid-row-end: 5;
 	display: flex;
 	justify-content: center;
 `;
 
 const GoogleSignOutPosition = styled.div`
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 5;
+	grid-column-start: 1;
+	grid-column-end: 5;
+	grid-row-start: 6;
 	grid-row-end: 6;	
 	display: flex;
 	justify-content: center;
@@ -52,8 +70,8 @@ const GoogleSignOutPosition = styled.div`
 
 
 const MyAccountPosition = styled.div`
-	grid-column-start: 3;
-	grid-column-end: 4;
+	grid-column-start: 5;
+	grid-column-end: 5;
 	grid-row-start: 1;
 	grid-row-end: 1;	
 	display: flex;
@@ -87,9 +105,15 @@ export class Authenticated extends Component {
 				<AddEmailPosition>
 					<AddEmail></AddEmail>
 				</AddEmailPosition>
-				<IDidItPosition>
-					<IDidIt setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor} userId={this.props.userId}></IDidIt>
-				</IDidItPosition>
+				<IDidIt1Position>
+					<IDidIt type={1} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[0]} userId={this.props.userId}></IDidIt>
+				</IDidIt1Position>
+				<IDidIt2Position>
+					<IDidIt type={2} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[1]} userId={this.props.userId}></IDidIt>
+				</IDidIt2Position>
+				<IDidIt3Position>
+					<IDidIt type={3} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[2]} userId={this.props.userId}></IDidIt>
+				</IDidIt3Position>
 				<MyAccountPosition>
 					<MyAccount image={this.props.image}/>
 				</MyAccountPosition>

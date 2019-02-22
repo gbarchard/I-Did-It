@@ -25,7 +25,7 @@ class App extends Component {
         imageUrl: localStorage.getItem("imageUrl"),
         userId: localStorage.getItem("userId"),
         newsFeed: [],
-        iDidItColor: 'white',
+        iDidItColors: ['white','white','white'],
         iDidItToday: false,
       }) 
       this.getDidIts ()
@@ -40,19 +40,7 @@ class App extends Component {
     }
   }
 
-  setIDidIt(iDidIt) {
-    if (iDidIt) {
-      this.setState({
-        iDidItColor: 'gray',
-        iDidItToday: true 
-      })
-    }
-    else {
-      this.setState({
-        iDidItColor: 'red',
-        iDidItToday: false 
-      })
-    }
+  setIDidIt(iDidIt,index) {
     this.getDidIts ()
   }
 
@@ -64,7 +52,8 @@ class App extends Component {
         id
         comment
         image
-        date 
+        date
+        type 
       }
     }`
 
@@ -76,21 +65,48 @@ class App extends Component {
         newsFeed: mydidits
       })
       this.setState({
-        iDidItColor: 'white',
-        iDidItToday: false
+        iDidItColors: ['gray','gray','gray'],
+        iDidItToday: false 
       })
-      if (currentDay.toString() === mydidits[0].date) {
-        this.setState({
-          iDidItColor: 'red',
-          iDidItToday: true 
-        })
-      }
-      else {
-        this.setState({
-          iDidItColor: 'gray',
-          iDidItToday: false 
-        })
-      }
+      mydidits.forEach(didit => {
+        if (currentDay.toString() === didit.date) {
+          switch(didit.type) {
+            case 1:
+            let colors1 = []
+            colors1 = this.state.iDidItColors
+            colors1[0] = 'red'
+            this.setState({
+              iDidItColors: colors1,
+              iDidItToday: true 
+            })
+            break
+            case 2:
+            let colors2 = []
+            colors2 = this.state.iDidItColors
+            colors2[1] = 'green'
+            this.setState({
+              iDidItColors: colors2,
+              iDidItToday: true 
+            })
+            break
+            case 3:
+            let colors3 = []
+            colors3 = this.state.iDidItColors
+            colors3[2] = 'purple'
+            this.setState({
+              iDidItColors: colors3,
+              iDidItToday: true 
+            })
+            break
+            default:
+          }
+
+        }
+        else {
+  
+        }
+      });
+
     })
   }
 
@@ -119,7 +135,7 @@ class App extends Component {
   ShowCorrectScreen() {
     if (this.state.signedIn===true) {
       return (
-        <Authenticated iDidItColor={this.state.iDidItColor} iDidItToday={this.state.iDidItToday} newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn} setIDidIt={this.setIDidIt}/>
+        <Authenticated iDidItColors={this.state.iDidItColors} iDidItColor={this.state.iDidItColors} iDidItToday={this.state.iDidItToday} newsFeed={this.state.newsFeed} userId={this.state.userId} image={this.state.imageUrl} setSignedInValue={this.setSignedIn} setIDidIt={this.setIDidIt}/>
       )
     }
     else {
