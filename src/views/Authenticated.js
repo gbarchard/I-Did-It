@@ -1,29 +1,17 @@
 import React, { Component } from 'react';
 import styled from "styled-components";
 
-
 import {IDidIt} from '../components/IDidIt';
 import {AddEmail} from '../components/AddEmail';
 import { GoogleSignOut } from '../components/GoogleSignOut';
 import { MyAccount } from '../components/MyAccount';
-import {SVGIcon} from '../components/SVGIcon';
-
-import { images } from '../data/images.js'
-
+import { NewsFeed } from '../components/NewsFeed';
 
 const View = styled.div`
 	display: grid;  
 	grid-template-columns: 32vw 32vw 32vw;
 	grid-template-rows: 17vh 60vh 20vh;
 `;
-
-const Icon = styled.div `
-    width: 5vmin;
-    height: 5vmin;
-
-    margin-left: -.3vmin;
-    margin-top: 3vmin;
-`
 
 const AddEmailPosition = styled.div`
 	grid-column-start: 0;
@@ -80,7 +68,6 @@ const GoogleSignOutPosition = styled.div`
 	justify-content: center;
 `;
 
-
 const MyAccountPosition = styled.div`
 	grid-column-start: 2;
 	grid-column-end: 3;
@@ -91,26 +78,6 @@ const MyAccountPosition = styled.div`
 `;
 
 export class Authenticated extends Component {
-  constructor(props) {
-    super(props);
-		this.addNewsFeed=this.addNewsFeed.bind(this)
-	}
-	componentWillMount(){
-	}
-
-
-	addNewsFeed() {
-
-			var newsFeed = this.props.newsFeed
-			return (
-				<div>
-					{newsFeed.map((newsFeedItem, i) => {
-						return (
-							<div key={i}>{newsFeedItem.date}<span><Icon><SVGIcon image={images[newsFeedItem.type].D} color={images[newsFeedItem.type].color}></SVGIcon></Icon></span></div>
-					)})}
-				</div>
-			)
-		}
 	render() {
 		return (
 			<View>
@@ -130,7 +97,7 @@ export class Authenticated extends Component {
 					<MyAccount image={this.props.image}/>
 				</MyAccountPosition>
 				<NewsFeedPosition>
-					{this.addNewsFeed()}
+					<NewsFeed newsFeed={this.props.newsFeed}></NewsFeed>
 				</NewsFeedPosition>
 				<GoogleSignOutPosition>
 					<GoogleSignOut setSignedInValue={this.props.setSignedInValue}></GoogleSignOut>
