@@ -71,10 +71,16 @@ export class IDidIt extends Component {
     }
 
     showIcon() {
-        let image = images[this.props.type]
-        return(
-            <SVGIcon image={image} color={this.props.iDidItColor}></SVGIcon>
-        )
+        if (this.props.iDidItToday) {
+            return(
+                <SVGIcon image={images[this.props.type].D} color={images[this.props.type].color}></SVGIcon>
+            )
+        }
+        else {
+            return(
+                <SVGIcon image={images[this.props.type].D} color={"gray"}></SVGIcon>
+            )
+        }
     }
 
     render() {

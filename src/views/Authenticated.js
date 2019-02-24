@@ -6,6 +6,8 @@ import {IDidIt} from '../components/IDidIt';
 import {AddEmail} from '../components/AddEmail';
 import { GoogleSignOut } from '../components/GoogleSignOut';
 import { MyAccount } from '../components/MyAccount';
+import {SVGIcon} from '../components/SVGIcon';
+
 
 
 const View = styled.div`
@@ -107,13 +109,13 @@ export class Authenticated extends Component {
 					<AddEmail></AddEmail>
 				</AddEmailPosition>
 				<IDidIt1Position>
-					<IDidIt type={1} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[0]} userId={this.props.userId}></IDidIt>
+					<IDidIt type={1} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday.one} userId={this.props.userId}></IDidIt>
 				</IDidIt1Position>
 				<IDidIt2Position>
-					<IDidIt type={2} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[1]} userId={this.props.userId}></IDidIt>
+					<IDidIt type={2} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday.two} userId={this.props.userId}></IDidIt>
 				</IDidIt2Position>
 				<IDidIt3Position>
-					<IDidIt type={3} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday} iDidItColor={this.props.iDidItColor[2]} userId={this.props.userId}></IDidIt>
+					<IDidIt type={3} setIDidIt={this.props.setIDidIt} iDidItToday={this.props.iDidItToday.three} userId={this.props.userId}></IDidIt>
 				</IDidIt3Position>
 				<MyAccountPosition>
 					<MyAccount image={this.props.image}/>
