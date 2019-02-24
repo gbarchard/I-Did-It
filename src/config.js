@@ -1,3 +1,3 @@
 export let config =  {
-	"baseURL": "http://localhost:3000/graphql"
+	"baseURL": "https://evening-stream-42098.herokuapp.com/graphql"
 }
