@@ -8,6 +8,7 @@ import { GoogleSignOut } from '../components/GoogleSignOut';
 import { MyAccount } from '../components/MyAccount';
 import {SVGIcon} from '../components/SVGIcon';
 
+import { images } from '../data/images.js'
 
 
 const View = styled.div`
@@ -15,6 +16,14 @@ const View = styled.div`
 	grid-template-columns: 32vw 32vw 32vw;
 	grid-template-rows: 17vh 60vh 20vh;
 `;
+
+const Icon = styled.div `
+    width: 5vmin;
+    height: 5vmin;
+
+    margin-left: -.3vmin;
+    margin-top: 3vmin;
+`
 
 const AddEmailPosition = styled.div`
 	grid-column-start: 0;
@@ -97,7 +106,7 @@ export class Authenticated extends Component {
 				<div>
 					{newsFeed.map((newsFeedItem, i) => {
 						return (
-							<div key={i}>{newsFeedItem.date}<span> {newsFeedItem.type}</span></div>
+							<div key={i}>{newsFeedItem.date}<span><Icon><SVGIcon image={images[newsFeedItem.type].D} color={images[newsFeedItem.type].color}></SVGIcon></Icon></span></div>
 					)})}
 				</div>
 			)
