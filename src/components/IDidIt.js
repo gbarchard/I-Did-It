@@ -2,18 +2,15 @@ import React, { Component } from 'react';
 import styled from "styled-components";
 import { request } from 'graphql-request';
 
+import {SVGIcon} from './SVGIcon';
+
 import { config } from '../config.js'
 import { images } from '../data/images.js'
 
 import { getCurrentDay } from '../GetCurrentDay.js'
 
 
-const Icon = styled.svg `
-    fill: ${
-	    props => (
-		    props.iDidItColor
-	    )
-    };
+const Icon = styled.div `
     width: 25vmin;
     height: 25vmin;
 
@@ -48,12 +45,12 @@ const IDidItButton = styled.button`
 export class IDidIt extends Component {
     constructor(props) {
         super(props);
-        this.sendEmail=this.sendEmail.bind(this);
+        this.sendEmail=this.recordDidIt.bind(this);
         this.showIcon=this.showIcon.bind(this);
     }
 
 
-    sendEmail = () => {
+    recordDidIt = () => {
         let today = getCurrentDay()
 
         const mutation = `mutation {
@@ -70,39 +67,23 @@ export class IDidIt extends Component {
 		let url = config.baseURL
 		request(url, mutation).then(data => {
             this.props.setIDidIt(true, this.props.type)
-            // var currentEmail = localStorage.getItem("email")
-            // if (currentEmail === null) {
-            //     localStorage.setItem("email","")
-            // }
-            // var RandomEmailIndex = Math.floor(Math.random() * 3);
-            // var RandomEmailMessages = ["I dominate","You're up, bro","Bring it!"]
-            // var CarriageReturn = "%0D%0A%0D%0A"
-            // var MarketingMessage = "Want to do it too?  Join us at http://ididitagain.herokuapp.com/"
-            // var EmailList =localStorage.getItem("email")
-            // var MyEmail = 'mailto:'+EmailList+'?subject=I Did It&body='+RandomEmailMessages[RandomEmailIndex] + CarriageReturn + MarketingMessage
-            // window.location.href = MyEmail
         })
     }
 
     showIcon() {
         let image = images[this.props.type]
         return(
-            <g>
-                {image.map((imagepath, i) => {
-                    return (
-                        <path key={i} d={imagepath}/>
-                    )
-                })}
-            </g>
+            <SVGIcon image={image} color={this.props.iDidItColor}></SVGIcon>
         )
     }
 
     render() {
         return (
-            <IDidItButton iDidItColor={this.props.iDidItColor} onClick={this.sendEmail}>
-                <Icon type={this.props.type} iDidItColor={this.props.iDidItColor} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000">
+            <IDidItButton iDidItColor={this.props.iDidItColor} onClick={this.recordDidIt}>
+                <Icon>
                     {this.showIcon()}
-                </Icon></IDidItButton>
+                </Icon>
+            </IDidItButton>
         );
     }
 }

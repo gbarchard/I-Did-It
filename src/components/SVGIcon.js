@@ -29,7 +29,7 @@ export class SVGIcon extends Component {
 
     render() {
         return (
-            <Icon xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000">
+            <Icon color={this.props.color} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000" enableBackground="new 0 0 1000 1000">
                 {this.buildIcon(this.props.image)}
             </Icon>
         );
