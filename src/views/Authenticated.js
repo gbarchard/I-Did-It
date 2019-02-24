@@ -10,41 +10,42 @@ import { MyAccount } from '../components/MyAccount';
 
 const View = styled.div`
 	display: grid;  
-	grid-template-columns: 1vmin 1fr 1fr 1fr 1vmin;
-	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	grid-template-columns: 32vw 32vw 32vw;
+	grid-template-rows: 17vh 60vh 20vh;
 `;
 
 const AddEmailPosition = styled.div`
-	grid-column-start: 1;
-	grid-column-end: 2;
+	grid-column-start: 0;
+	grid-column-end: 1;
 	grid-row-start: 1;
 	grid-row-end: 1;
 	display: flex;
-	justify-content: left;
+	justify-content: flex-start;
 `;
 
 const IDidIt1Position = styled.div`
-	grid-column-start: 2;
-	grid-column-end: 3;
-	grid-row-start: 2;
+	grid-column-start: 0;
+	grid-column-end: 1;
+	grid-row-start: 3;
 	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
 `;
 
 const IDidIt2Position = styled.div`
-	grid-column-start: 3;
-	grid-column-end: 4;
-	grid-row-start: 2;
+	grid-column-start: 1;
+	grid-column-end: 2;
+	grid-row-start: 3;
 	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
+
 `;
 
 const IDidIt3Position = styled.div`
-	grid-column-start: 4;
-	grid-column-end: 5;
-	grid-row-start: 2;
+	grid-column-start: 2;
+	grid-column-end: 3;
+	grid-row-start: 3;
 	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
@@ -52,26 +53,26 @@ const IDidIt3Position = styled.div`
 
 const NewsFeedPosition = styled.div`
 	grid-column-start: 1;
-	grid-column-end: 5;
-	grid-row-start: 3;
-	grid-row-end: 5;
+	grid-row-start: 2;
+	grid-row-end: 3;
 	display: flex;
 	justify-content: center;
+  align-items: flex-end;
 `;
 
 const GoogleSignOutPosition = styled.div`
 	grid-column-start: 1;
-	grid-column-end: 5;
-	grid-row-start: 6;
-	grid-row-end: 6;	
+	grid-column-end: 2;
+	grid-row-start: 1;
+	grid-row-end: 1;	
 	display: flex;
 	justify-content: center;
 `;
 
 
 const MyAccountPosition = styled.div`
-	grid-column-start: 5;
-	grid-column-end: 5;
+	grid-column-start: 2;
+	grid-column-end: 3;
 	grid-row-start: 1;
 	grid-row-end: 1;	
 	display: flex;
@@ -94,7 +95,7 @@ export class Authenticated extends Component {
 				<div>
 					{newsFeed.map((newsFeedItem, i) => {
 						return (
-							<div key={i}>{newsFeedItem.date}</div>
+							<div key={i}>{newsFeedItem.date}<span> {newsFeedItem.type}</span></div>
 					)})}
 				</div>
 			)
