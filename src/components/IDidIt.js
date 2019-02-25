@@ -68,7 +68,13 @@ export class IDidIt extends Component {
 		request(url, mutation).then(data => {
             var audio = document.createElement('audio');
             audio.src = images[this.props.type].sound
-            audio.play();
+            playAudio()
+            async function playAudio() {
+                try {
+                  await audio.play();
+                } catch(err) {
+                }
+              }
             this.props.setIDidIt(true, this.props.type)
         })
     }
