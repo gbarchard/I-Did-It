@@ -4,10 +4,12 @@ import { request } from 'graphql-request';
 
 import {SVGIcon} from './SVGIcon';
 
+import {playSound} from '../functions/playSound';
+
 import { config } from '../config.js'
 import { images } from '../data/images.js'
 
-import { getCurrentDay } from '../GetCurrentDay.js'
+import { getCurrentDay } from '../functions/GetCurrentDay.js'
 
 
 const Icon = styled.div `
@@ -66,15 +68,7 @@ export class IDidIt extends Component {
 
 		let url = config.baseURL
 		request(url, mutation).then(data => {
-            var audio = document.createElement('audio');
-            audio.src = images[this.props.type].sound
-            playAudio()
-            async function playAudio() {
-                try {
-                  await audio.play();
-                } catch(err) {
-                }
-              }
+            playSound(images[this.props.type].sound)
             this.props.setIDidIt(true, this.props.type)
         })
     }

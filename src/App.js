@@ -3,7 +3,7 @@ import { request } from 'graphql-request';
 
 import { config } from './config.js';
 
-import { getCurrentDay } from './GetCurrentDay';
+import { getCurrentDay } from './functions/GetCurrentDay';
 
 import { Authenticated } from './views/Authenticated';
 import { Unauthenticated } from './views/Unauthenticated';
