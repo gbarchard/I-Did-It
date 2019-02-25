@@ -14,22 +14,24 @@ class App extends Component {
     this.setSignedIn=this.setSignedIn.bind(this)
     this.setIDidIt=this.setIDidIt.bind(this)
     this.getDidIts=this.getDidIts.bind(this)
-
   }
 
   componentWillMount() {
+
+    this.setState({
+      iDidItToday: {
+        "one": false,
+        "two": false,
+        "three": false
+      }
+    })
     
     if (localStorage.getItem("signedIn")==="true") {
       this.setState({
         signedIn: true,
         imageUrl: localStorage.getItem("imageUrl"),
         userId: localStorage.getItem("userId"),
-        newsFeed: [],
-        iDidItToday: {
-          "one": false,
-          "two": false,
-          "three": false
-        }
+        newsFeed: []
       }) 
       this.getDidIts ()
     }
