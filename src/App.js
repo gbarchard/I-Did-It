@@ -137,6 +137,7 @@ class App extends Component {
       localStorage.setItem("userId", "")
       this.setState({userId: ""})
     }
+    this.getDidIts ()
   }
 
   ShowCorrectScreen() {

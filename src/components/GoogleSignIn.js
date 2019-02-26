@@ -37,7 +37,7 @@ export class GoogleSignIn extends Component {
 			}
 		}`
 
-  		let url = config.baseURL
+  	let url = config.baseURL
 		request(url, mutation).then(data => {
 			this.props.setSignedInValue({
 				"signedIn": true,
